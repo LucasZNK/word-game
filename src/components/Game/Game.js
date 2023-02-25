@@ -6,6 +6,7 @@ import SearchForm from "../SearchForm/SearchForm";
 import GuessResults from "../GuessResults/GuessResults";
 import ResultBanner from "../ResultBanner/ResultBanner";
 import { NUM_OF_GUESSES_ALLOWED } from "../../constants";
+import Confetti from "react-confetti";
 
 // Pick a random word on every pageload.
 const answer = sample(WORDS);
@@ -34,12 +35,15 @@ function Game() {
       <p>Attempts left: {attemptsLeft} </p>
 
       {gameFinished && (
-        <ResultBanner
-          win={win}
-          answer={answer}
-          attemptsLeft={attemptsLeft}
-          setAttemptsLeft={setAttemptsLeft}
-        />
+        <>
+          {win && <Confetti />}
+          <ResultBanner
+            win={win}
+            answer={answer}
+            attemptsLeft={attemptsLeft}
+            setAttemptsLeft={setAttemptsLeft}
+          />
+        </>
       )}
     </>
   );
