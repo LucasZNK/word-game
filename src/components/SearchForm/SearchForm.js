@@ -42,7 +42,7 @@ function SearchForm({
 
   return (
     <form className="guess-input-wrapper" onSubmit={handleSubmit}>
-      {gameFinished ? <p>Game finished</p> : <p>Enter guess:</p>}
+      {gameFinished ? <p>Game finished</p> : <p> Enter guess:</p>}
       <label htmlFor="input-word">
         <input
           disabled={gameFinished}
